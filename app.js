@@ -41,7 +41,7 @@ app.post('/contact', function(req, res){
 
     smtpTransport.sendMail({
         from: '"' + req.body.name + '" <' + req.body.email + '>',
-        to: 'dave@dchorton.com',
+        to: 'susan@susanmaupin.com',
         subject: 'Contact request from susanmaupin.com: ' + req.body.subject,
         text: req.body.message
     }, function(error, response){
