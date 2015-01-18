@@ -134,25 +134,24 @@ jQuery( function($){
 	/*----------------------/
 	/* SERVICES
 	/*---------------------*/
-	var servicesContent = {
-		'branding' : '<p>I can help your team arrive at a clear message describing your company’s offering.  ' + 
-			'I can work directly with your team or help you select, hire and manage an agency.</p>' + 
-			'<p>I will also help build acceptance and consistency of messaging throughout your organization as well as promote ' + 
-			'customer understanding and familiarity with your brand, ultimately leading to increased sales effectiveness.</p>',
-		'plans': '<p>My starting point is always your company’s strategic imperatives and key business initiatives.</p>' + 
-			'<p>I will work with you to shape integrated campaigns and programs that ladder up to your corporate objectives and ' + 
-			'support your brand.</p>'
-	};
-	$('#services .read-more').popover({
-		container: 'body',
-		html: 'true',
-		content: function() {
-			var key = $(this).attr('data-content-key') ;
-			return servicesContent[key] ;
-		}
-	}) ;
 	$('#services .read-more').click( function(e) {
-		$(e).popover('show') ;
+		var expanded = $(e.target).closest('.row').next('.row.expanded') ;
+		var target = expanded.find('#' + $(e.target).closest('a').attr('data-content-key') ) ;
+
+		//is target already visible?  if so, hide
+		if( target.is(':visible') ) {
+			expanded.hide('slow') ;
+			target.hide() ;
+		}
+		else {
+			//close any open panels
+			$(e.target).closest('.section-content').find('.expanded').hide() ;
+			$(e.target).closest('.section-content').find('.expanded .content-holder').hide() ;
+
+			target.show() ;
+			expanded.show('slow') ;
+		}
+
 		return false ;
 	}) ;
 
