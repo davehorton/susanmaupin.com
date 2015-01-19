@@ -134,34 +134,61 @@ jQuery( function($){
 	/*----------------------/
 	/* SERVICES
 	/*---------------------*/
+	function showService( a ) {
+		var target = a.attr('data-content-key') ;
+		var clickedRow = a.closest('.row') ;
+		var expandedRow = clickedRow.next('.row.expanded') ;
+
+		//tighten up the bottom margin so the expanded row snuggles up to it
+		clickedRow.find('.service-item').css('margin-bottom','40px') ;
+
+		expandedRow.find('#' + target).show() ;
+		expandedRow.show('fast') ;
+	}
+	function hideService( a ) {
+		var target = a.attr('data-content-key') ;
+		var clickedRow = a.closest('.row') ;
+		var expandedRow = clickedRow.next('.row.expanded') ;
+
+		expandedRow.hide('fast') ;
+
+		//loosen up the bottom margin now that expanded row is hidden
+		clickedRow.find('.service-item').css('margin-bottom','80px') ;
+
+		expandedRow.find('#' + target).hide() ;
+	}
+	function hideAllServices() {
+		//close any open panels
+		$('#services .section-content').find('.expanded').hide() ;
+		$('#services .section-content .service-item').css('margin-bottom','80px')  ;
+		$('#services .section-content').find('.expanded .content-holder').hide() ;
+	}
+
 	$('#services .read-more').click( function(e) {
-		var expanded = $(e.target).closest('.row').next('.row.expanded') ;
-		var target = expanded.find('#' + $(e.target).closest('a').attr('data-content-key') ) ;
+		var a = $(e.target).closest('a') ;
+		var expanded = a.closest('.row').next('.row.expanded') ;
 
 		//is target already visible?  if so, hide
-		if( target.is(':visible') ) {
-			expanded.hide('slow') ;
-			target.hide() ;
+		if( expanded.find('#' + a.attr('data-content-key') ).is(':visible') ) {
+			hideService( a ) ;
 		}
 		else {
-			//close any open panels
-			$(e.target).closest('.section-content').find('.expanded').hide() ;
-			$(e.target).closest('.section-content').find('.expanded .content-holder').hide() ;
-
-			target.show() ;
-			expanded.show('slow') ;
+			hideAllServices() ;
+			showService( a ) ;
 		}
 
 		return false ;
 	}) ;
 
-	//dismiss if we click outside
+	//dismiss services panel if we click outside
 	$('body').on('click', function (e) {
-	    $('[data-toggle="popover"]').each(function () {
+	    $('#services .read-more').each(function () {
 	        //the 'is' for buttons that trigger popups
 	        //the 'has' for icons within a button that triggers a popup
-	        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-	            $(this).popover('hide');
+	        if (!$(this).is(e.target) && $(this).has(e.target).length === 0) {
+	            //hide all
+	            $('#services .section-content').find('.expanded').hide() ;
+				$('#services .section-content').find('.expanded .content-holder').hide() ;
 	        }
 	    });
 	});

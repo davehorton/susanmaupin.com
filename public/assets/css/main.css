@@ -5577,6 +5577,9 @@ img.mfp-img {
 .service-item {
   margin-bottom: 80px;
 }
+.service-item.expanded {
+  margin-bottom: 20px;
+}
 .service-item .service-icon {
   position: absolute;
   top: 0;
@@ -5628,14 +5631,14 @@ img.mfp-img {
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
   margin-bottom: 40px;  
-  margin-top: -35px;
+ /* margin-top: -35px; */
 }
 #services .section-content .expanded .arrow {
   border-width: 11px;
 }
 #services .section-content .expanded .content > p {
   position: relative;
-  top: -20px ;
+ /*  top: -20px ; */
 }
 #services .section-content .expanded .arrow, #services .section-content .expanded .arrow:after {
   position: absolute;
