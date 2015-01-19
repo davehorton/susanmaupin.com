@@ -189,6 +189,7 @@ jQuery( function($){
 	            //hide all
 	            $('#services .section-content').find('.expanded').hide() ;
 				$('#services .section-content').find('.expanded .content-holder').hide() ;
+				$('#services .section-content .service-item').css('margin-bottom','80px')  ;
 	        }
 	    });
 	});
