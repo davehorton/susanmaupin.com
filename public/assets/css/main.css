@@ -261,7 +261,8 @@ a:hover, a:focus {
 }
 .section-heading p {
   font-size: 1.5em;
-  color: #c2c2c2;
+  /*color: #c2c2c2;*/
+  color: #aaa;
 }
 .section-heading hr {
   display: inline-block;
@@ -5413,7 +5414,8 @@ img.mfp-img {
 .about .call-to-action {
   margin-left: -100px ;
   font-size: 1.5em;
-  color: #c2c2c2;
+  /*color: #c2c2c2;*/
+  color: #aaa;
   font-family: "Dosis", sans-serif;
 }
 .about .section-heading {
