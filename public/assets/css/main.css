@@ -272,6 +272,8 @@ a:hover, a:focus {
   *display: inline;
   width: 100px;
   border-top: 1px solid #646464;
+  margin-top: 5px ;
+  margin-bottom: 5px ;  
 }
 
 .section-content h3 {
@@ -5393,79 +5395,60 @@ img.mfp-img {
 /* ------------------ ABOUT ------------------ */
 .about {
   position: relative;
-  text-align: center;
+  text-align: justify;
 }
+/*
 .about .that-means {
   margin-left: 140px;
   text-align: left ;
 }
-.about hr.rule {
+*/
+.section-footer hr {
   display: inline-block;
   vertical-align: middle;
   width: 100px;
   border-top: 1px solid #646464;
-  margin-left: -100px ;
-}
-.about .img-left {
+  margin-top: 5px ;
+  margin-bottom: 5px ;
+}.about .img-left {
   position: absolute;
   bottom: 335px;
   left: 140px;
 }
 .about .call-to-action {
-  margin-left: -100px ;
   font-size: 1.5em;
-  /*color: #c2c2c2;*/
   color: #aaa;
   font-family: "Dosis", sans-serif;
 }
 .about .section-heading {
-  margin-bottom: 5px ;
+  margin-bottom: 2px ;
 }
-.about ul.about-list {
-  text-align: left ;
+.about .section-footer {
+  text-align: center;
 }
+
 .about ul.about-list li {
   list-style: none ;
+  margin-top: 2px ;
+}
+.about ul.about-list {
+  margin-left: 20px ;
 }
 .unibull {
-  float: left;
   width: 1.5em;
   color: green ;
 }
-.about ul.about-list .indent1 {
-  margin-left: 180px ;
+@media screen and (max-width: 480px) {
+  .about ul.about-list li {
+    text-align: left ;
+    list-style-position: inside;
+    padding-left: 10px ;
+    text-indent: -1em ;
+  }  
+.about ul.about-list {
+  margin-left: 0px ;
 }
-.about ul.about-list .indent2 {
-  margin-left: 275px ;
-}
-.about ul.about-list .indent3 {
-  margin-left: 300px ;
-}
-.about ul.about-list .indent4 {
-  margin-left: 325px ;
-}
-.about ul.about-list .indent5 {
-  margin-left: 350px ;
-}
-.about ul.about-list .indent10 {
-  margin-left: 50px ;
-  list-style-position: outside;
-  text-indent: -2em ;
-}
-.about ul.about-list .indent11 {
-  margin-left: 100px ;
-  list-style-position: outside;
-  text-indent: -2em ;
-}
-.about ul.about-list .indent12 {
-  margin-left: 150px ;
-  list-style-position: outside;
-  text-indent: -2em ;
-}
-.about ul.about-list .indent13 {
-  margin-left: 200px ;
-  list-style-position: outside;
-  text-indent: -2em ;
+
 }
 
 /* --------------------- */
@@ -5728,11 +5711,32 @@ img.mfp-img {
   opacity: 1;
   margin-left: 0;
 }
+.service-item .icon-ticket2 {
+  left: -3px ;
+}
 
 @media screen and (max-width: 480px) {
   .services {
     padding-bottom: 0;
   }
+}
+@media only screen 
+    and (max-device-width: 640px), 
+    only screen and (max-device-width: 667px), 
+    only screen and (max-width: 480px)
+{ 
+  .services .service-text a[data-toggle=popover] {
+    visibility: hidden;
+  }
+ .service-item .icon-ticket2 {
+    left: 0px ;
+  }
+  .service-item {
+    margin-bottom: 40px ;
+  }
+}
+ 
+
 }
 /* ------------------ WORKS ------------------ */
 #works li.work-item > img {
@@ -5796,6 +5800,64 @@ img.mfp-img {
   padding-left: 1em;
   list-style-position: inside;
   text-indent: -1.5em;
+}
+
+.mobile-overlay {
+  display: none;
+}
+
+@media only screen 
+    and (max-device-width: 640px), 
+    only screen and (max-device-width: 667px), 
+    only screen and (max-width: 480px)
+{ 
+  .work-item-info {
+    display: none;
+  }
+  .image-overlay, .work-item-list .image-overlay:hover {
+    opacity: 0 ;
+    background-color: transparent;
+    display: none;
+  }
+  .work-item-info {
+    display: none;
+  }
+  .image-overlay, .work-item-list .image-overlay:hover {
+    opacity: 0 ;
+    background-color: transparent;
+    display: none;
+  }
+  .mobile-overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .mobile-overlay a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;  
+  }
+}
+
+@media only screen 
+    and (max-device-width: 640px), 
+    only screen and (max-device-width: 667px), 
+    only screen and (max-width: 480px)
+{ 
+img.headshot {
+  margin-left: auto ;
+  margin-right: auto ;
+  display: block ;
+}
+
+}
+/* contact info */
+img.headshot {
+  margin-bottom: 30px ;
 }
 /* ----------------------------- */
 /* RECOMMENDED ISOTOPE STYLES 
